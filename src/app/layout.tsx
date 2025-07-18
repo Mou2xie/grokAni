@@ -51,6 +51,7 @@ export default function RootLayout({
             gtag('config', 'G-KW4NB978FT');
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   );
