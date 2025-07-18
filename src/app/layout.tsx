@@ -32,12 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
-      <body>
-        <NavaBar />
-        <Main>
-          {children}
-        </Main>
-        <Footer />
+      <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KW4NB978FT"
           strategy="afterInteractive"
@@ -51,6 +46,15 @@ export default function RootLayout({
             gtag('config', 'G-KW4NB978FT');
           `}
         </Script>
+
+      </head>
+      <body>
+        <NavaBar />
+        <Main>
+          {children}
+        </Main>
+        <Footer />
+
         <Analytics />
       </body>
     </html>
