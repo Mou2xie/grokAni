@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const pageUrl = encodeURIComponent(window.location.href);
+const pageUrl = 'https://www.grokani.love/'
 const text = encodeURIComponent("Check what I just found out! It's amazing!");
 const hashtags = encodeURIComponent("share");
 
