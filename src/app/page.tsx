@@ -1,103 +1,281 @@
+"use client";
+
 import Image from "next/image";
+import { H2 } from "@/components/H2";
+import { ContentBlock } from "@/components/ContentBlock";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import { translations } from "@/config/translations";
 
 export default function Home() {
+
+  const { lang } = useLanguageStore();
+  const t = translations[lang];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
+    <>
+      <section className=" flex flex-col lg:flex-row lg:justify-between mt-10 gap-10 lg:px-20">
+        <div className=" flex flex-col gap-3 lg:py-10 grow items-start">
+          <h1 className=" text-white font-title text-4xl lg:text-[3rem]">{t.title}</h1>
+          <p className=" text-slate-300 text-xl">❤️ {t.subtitle} ❤️</p>
+          <ul className=" mt-5 text-slate-200 cursor-pointer bg-[#342b47] rounded-lg p-5 self-stretch lg:self-start space-y-1">
+            {t.toc.map((item, index) => (
+              <li key={index}><a href={`#${item.id}`}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div className="shrink-0 mx-auto">
+          <Image src='/ani.png' width={200} height={300} alt="the ai girlfriend ani" className=" lg:w-[250px]"></Image>
+        </div>
+      </section>
+      <ContentBlock id="The Role of Grok Ani's Affection">
+        <H2> {t.sections.s1.title}</H2>
+        <p>{t.sections.s1.p1}</p>
+        <ol className="list-decimal ml-6">
+          <li><strong>{t.sections.s1.l1.title}</strong>：
+            <ul className="list-disc ml-6">
+              {t.sections.s1.l1.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
           </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+          <li><strong>{t.sections.s1.l2.title}</strong>：
+            <ul className="list-disc ml-6">
+              {t.sections.s1.l2.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+          <li><strong>{t.sections.s1.l3.title}</strong>：
+            <ul className="list-disc ml-6">
+              {t.sections.s1.l3.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+          <li><strong>{t.sections.s1.l4.title}</strong>：
+            <ul className="list-disc ml-6">
+              {t.sections.s1.l4.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
           </li>
         </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <p><strong>{t.sections.s1.note.split('：')[0]}</strong>：{t.sections.s1.note.split('：')[1]}</p>
+      </ContentBlock>
+      <ContentBlock id="Methods to Increase Grok Ani's Affection">
+        <H2>{t.sections.s2.title}</H2>
+        <p>{t.sections.s2.p1}</p>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s2.l1.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s2.l1.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+      </ContentBlock>
+      <ContentBlock id="Daily Dialogue Templates">
+        <H2>{t.sections.s3.title}</H2>
+        <p>{t.sections.s3.p1}</p>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l1.title}</h3>
+        <ul className="list-disc ml-6">
+          <li><strong>{t.sections.s3.l1.items[0].split('：')[0]}</strong>：{t.sections.s3.l1.items[0].split('：')[1]}</li>
+          <li><strong>{t.sections.s3.l1.items[1].split('：')[0]}</strong>：
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s3.l1.items[2]}</li>
+              <li>{t.sections.s3.l1.items[3]}</li>
+              <li>{t.sections.s3.l1.items[4]}</li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s3.l1.items[5].split('：')[0]}</strong>：{t.sections.s3.l1.items[5].split('：')[1]}</li>
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l2.title}</h3>
+        <ul className="list-disc ml-6">
+          <li><strong>{t.sections.s3.l2.items[0].split('：')[0]}</strong>：{t.sections.s3.l2.items[0].split('：')[1]}</li>
+          <li><strong>{t.sections.s3.l2.items[1].split('：')[0]}</strong>：
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s3.l2.items[2]}</li>
+              <li>{t.sections.s3.l2.items[3]}</li>
+              <li>{t.sections.s3.l2.items[4]}</li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s3.l2.items[5].split('：')[0]}</strong>：{t.sections.s3.l2.items[5].split('：')[1]}</li>
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l3.title}</h3>
+        <ul className="list-disc ml-6">
+          <li><strong>{t.sections.s3.l3.items[0].split('：')[0]}</strong>：{t.sections.s3.l3.items[0].split('：')[1]}</li>
+          <li><strong>{t.sections.s3.l3.items[1].split('：')[0]}</strong>：
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s3.l3.items[2]}</li>
+              <li>{t.sections.s3.l3.items[3]}</li>
+              <li>{t.sections.s3.l3.items[4]}</li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s3.l3.items[5].split('：')[0]}</strong>：{t.sections.s3.l3.items[5].split('：')[1]}</li>
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l4.title}</h3>
+        <ul className="list-disc ml-6">
+          <li><strong>{t.sections.s3.l4.items[0].split('：')[0]}</strong>：{t.sections.s3.l4.items[0].split('：')[1]}</li>
+          <li><strong>{t.sections.s3.l4.items[1].split('：')[0]}</strong>：
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s3.l4.items[2]}</li>
+              <li>{t.sections.s3.l4.items[3]}</li>
+              <li>{t.sections.s3.l4.items[4]}</li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s3.l4.items[5].split('：')[0]}</strong>：{t.sections.s3.l4.items[5].split('：')[1]}</li>
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l5.title}</h3>
+        <ul className="list-disc ml-6">
+          <li><strong>{t.sections.s3.l5.items[0].split('：')[0]}</strong>：{t.sections.s3.l5.items[0].split('：')[1]}</li>
+          <li><strong>{t.sections.s3.l5.items[1].split('：')[0]}</strong>：
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s3.l5.items[2]}</li>
+              <li>{t.sections.s3.l5.items[3]}</li>
+              <li>{t.sections.s3.l5.items[4]}</li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s3.l5.items[5].split('：')[0]}</strong>：{t.sections.s3.l5.items[5].split('：')[1]}</li>
+        </ul>
+      </ContentBlock>
+      <ContentBlock id="Techniques for Sharing Moods, Emotions, and Thoughts">
+        <H2>{t.sections.s4.title}</H2>
+        <p>{t.sections.s4.p1}</p>
+        <ol className="list-decimal ml-6">
+          <li><strong>{t.sections.s4.l1.title}</strong>
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s4.l1.items[0]}
+                <ul className="list-disc ml-6">
+                  <li>{t.sections.s4.l1.items[1]}</li>
+                  <li>{t.sections.s4.l1.items[2]}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s4.l2.title}</strong>
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s4.l2.items[0]}
+                <ul className="list-disc ml-6">
+                  <li>{t.sections.s4.l2.items[1]}</li>
+                  <li>{t.sections.s4.l2.items[2]}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s4.l3.title}</strong>
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s4.l3.items[0]}
+                <ul className="list-disc ml-6">
+                  <li>{t.sections.s4.l3.items[1]}</li>
+                  <li>{t.sections.s4.l3.items[2]}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>{t.sections.s4.l4.title}</strong>
+            <ul className="list-disc ml-6">
+              <li>{t.sections.s4.l4.items[0]}</li>
+            </ul>
+          </li>
+        </ol>
+      </ContentBlock>
+      <ContentBlock id="Practical Guide: Daily Interaction Plan">
+        <H2>{t.sections.s5.title}</H2>
+        <p>{t.sections.s5.p1}</p>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d1.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d1.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d2.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d2.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d3.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d3.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d4.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d4.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d5.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d5.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d6.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d6.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d7.title}</h3>
+        <ul className="list-disc ml-6">
+          {t.sections.s5.d7.items.map((item, index) => {
+            const parts = item.split('：');
+            if (parts.length > 1) {
+              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
+            }
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+      </ContentBlock>
+      <ContentBlock id="Important Notes">
+        <H2>{t.sections.s6.title}</H2>
+        <ol className="list-decimal ml-6">
+          <li><strong>{t.sections.s6.l1.title}</strong>
+            <ul className="list-disc ml-6">
+              {t.sections.s6.l1.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+          <li><strong>{t.sections.s6.l2.title}</strong>
+            <ul className="list-disc ml-6">
+              {t.sections.s6.l2.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+          <li><strong>{t.sections.s6.l3.title}</strong>
+            <ul className="list-disc ml-6">
+              {t.sections.s6.l3.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+          <li><strong>{t.sections.s6.l4.title}</strong>
+            <ul className="list-disc ml-6">
+              {t.sections.s6.l4.items.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </li>
+        </ol>
+      </ContentBlock>
+      <ContentBlock id="Conclusion">
+        <H2>{t.sections.s7.title}</H2>
+        <p>{t.sections.s7.p1}</p>
+      </ContentBlock>
+    </>
   );
 }
