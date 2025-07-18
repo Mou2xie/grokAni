@@ -8,6 +8,8 @@ import { NavaBar } from "@/components/NavBar";
 import { Main } from "@/components/Main";
 import { Footer } from "@/components/Footer";
 
+import { Analytics } from "@vercel/analytics/next"
+
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
