@@ -5,6 +5,7 @@ import { H2 } from "@/components/H2";
 import { ContentBlock } from "@/components/ContentBlock";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { translations } from "@/config/translations";
+import Share from "@/components/Share";
 
 export default function Home() {
 
@@ -13,6 +14,9 @@ export default function Home() {
 
   return (
     <>
+    <aside className=" absolute right-0 top-150 lg:top-30">
+      <Share />
+    </aside>
       <section className=" flex flex-col lg:flex-row lg:justify-between mt-10 gap-10 lg:px-20">
         <div className=" flex flex-col gap-3 lg:py-10 grow items-start">
           <h1 className=" text-white font-title text-4xl lg:text-[3rem]">{t.title}</h1>
