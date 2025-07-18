@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import { NavaBar } from "@/components/NavBar";
 import { Main } from "@/components/Main";
@@ -35,6 +36,19 @@ export default function RootLayout({
           {children}
         </Main>
         <Footer />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KW4NB978FT"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KW4NB978FT');
+          `}
+        </Script>
       </body>
     </html>
   );
