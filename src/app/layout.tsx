@@ -33,12 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107883456107875"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107883456107875"
+          crossOrigin="anonymous">
+        </script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KW4NB978FT"
           strategy="afterInteractive"
