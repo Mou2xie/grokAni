@@ -3,4 +3,4 @@ A complete guide to increasing affection with Grok’s virtual companion, Ani. I
 
 Link:https://www.grokani.love/
 
-![grok ani](https://www.grokani.love/_next/image?url=%2Fani.png&w=256&q=75)
+![grok ani]([text](https://www.grokani.love/_next/image?url=%2Fani.png&w=256&q=75))
