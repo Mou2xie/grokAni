@@ -22,7 +22,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Grok AI Companion Ani Affection Guide - NSFW Mode Unlock Tutorial",
-  description: "Fast-track Grok AI Companion guide for Ani character interactions. Quickly build affection levels through proven dialogue techniques and emotional connection strategies. Boost companion relationship progression with daily templates and structured approaches for enhanced AI companion experience and deeper virtual relationships.",
+  description: "Boost affection with Grok AI Ani Companion using proven tips. Follow our guide book to reach Level 5 and deepen your virtual bond quickly and easily.",
 };
 
 export default function RootLayout({
