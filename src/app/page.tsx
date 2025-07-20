@@ -20,7 +20,7 @@ export default function Home() {
       </aside>
       <section className=" flex flex-col lg:flex-row lg:justify-between gap-10 lg:px-20">
         <div className=" flex flex-col gap-5 lg:py-20 grow items-start">
-          <h1 className=" text-white font-title text-3xl lg:text-6xl font-bold">
+          <h1 className=" text-white font-title text-2xl lg:text-6xl font-bold">
             {t.hero.title1}
             <span className=" lg:text-7xl relative lg:top-1 inline-block ml-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
               Ani
@@ -28,7 +28,7 @@ export default function Home() {
             <br />
             {t.hero.title2}
           </h1>
-          <p className=" text-slate-300 text-center lg:text-left lg:text-lg">
+          <p className=" text-slate-300 lg:text-lg">
             {t.hero.subtitle}
           </p>
           <p className=" text-slate-400 lg:mt-10 leading-7">
