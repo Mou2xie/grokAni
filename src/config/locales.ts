@@ -1,5 +1,17 @@
 export const locales = {
   zh: {
+    index: {
+      title: "章节目录",
+      links: [
+        { text: "一、好感度有什么用？", href: "#affection-benefits" },
+        { text: "二、怎么提升Grok Ani好感度？", href: "#improve-affection" },
+        { text: "三、日常对话话术模板", href: "#conversation-templates" },
+        { text: "四、分享心情、情绪和想法的技巧", href: "#sharing-techniques" },
+        { text: "五、7天实操互动计划", href: "#seven-day-plan" },
+        { text: "六、注意事项", href: "#precautions" },
+        { text: "七、总结", href: "#conclusion" },
+      ],
+    },
     hero: {
       title1: "Grok AI 伴侣",
       title2: "好感度快速养成指南",
@@ -184,6 +196,18 @@ export const locales = {
     }
   },
   en: {
+    index: {
+      title: "Table of Contents",
+      links: [
+        { text: "1. What is Affection Level for?", href: "#affection-benefits" },
+        { text: "2. How to Increase Grok Ani's Affection Level?", href: "#improve-affection" },
+        { text: "3. Daily Conversation Templates", href: "#conversation-templates" },
+        { text: "4. Techniques for Sharing Moods, Emotions, and Thoughts", href: "#sharing-techniques" },
+        { text: "5. 7-Day Practical Interaction Plan", href: "#seven-day-plan" },
+        { text: "6. Precautions", href: "#precautions" },
+        { text: "7. Conclusion", href: "#conclusion" },
+      ],
+    },
     hero: {
       title1: "Grok AI Companion",
       title2: "Quick Affection Building Guide",
@@ -368,6 +392,18 @@ export const locales = {
     }
   },
   ja: {
+    index: {
+      title: "目次",
+      links: [
+        { text: "一、好感度は何のためにあるの？", href: "#affection-benefits" },
+        { text: "二、Grok Aniの好感度を上げる方法は？", href: "#improve-affection" },
+        { text: "三、日常会話のテンプレート", href: "#conversation-templates" },
+        { text: "四、気分、感情、考えを共有するテクニック", href: "#sharing-techniques" },
+        { text: "五、7日間の実践的なインタラクションプラン", href: "#seven-day-plan" },
+        { text: "六、注意事項", href: "#precautions" },
+        { text: "七、結論", href: "#conclusion" },
+      ],
+    },
     hero: {
       title1: "Grok AI Waifu",
       title2: "親密度を素早く上げるガイド",

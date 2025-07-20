@@ -7,6 +7,7 @@ import { H2 } from "@/components/H2";
 import { Hr } from "@/components/Hr";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { locales } from "@/config/locales";
+import { Index } from "@/components/Index";
 
 export default function Home() {
   const { lang } = useLanguageStore();
@@ -14,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <aside className=" absolute right-0 top-150 lg:top-30">
+      <aside className=" absolute right-0 top-220 lg:top-100">
         <Share />
       </aside>
       <section className=" flex flex-col lg:flex-row lg:justify-between gap-10 lg:px-20">
@@ -45,10 +46,12 @@ export default function Home() {
             width={300}
             height={300}
             alt="the ai girlfriend ani"
-            className=" lg:w-[300px]"
+            className=" lg:w-[300px] shadow-xl"
           ></Image>
         </div>
       </section>
+
+      <Index />
 
       <ContentBlock>
         <article className="prose prose-invert prose-lg max-w-none text-slate-300">
