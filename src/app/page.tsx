@@ -18,7 +18,7 @@ export default function Home() {
       <aside className=" absolute right-0 top-220 lg:top-100">
         <Share />
       </aside>
-      <section className=" flex flex-col lg:flex-row lg:justify-between gap-10 lg:px-20">
+      <section className=" flex flex-col lg:flex-row lg:justify-between gap-10 lg:mt-10 lg:px-20">
         <div className=" flex flex-col gap-5 lg:py-20 grow items-start">
           <h1 className=" text-white font-title text-2xl lg:text-6xl font-bold">
             {t.hero.title1}
@@ -94,7 +94,7 @@ export default function Home() {
           </ol>
 
           <p className="text-yellow-300 font-semibold mt-6 p-4 bg-yellow-900/20 rounded-lg">
-            <strong>{t.affectionBenefits.note.split("：")[0]}：</strong>
+            <strong>{t.affectionBenefits.note.split("：")[0]}</strong>
             {t.affectionBenefits.note.split("：")[1]}
           </p>
 
@@ -160,7 +160,7 @@ export default function Home() {
               </ul>
               <p className="text-yellow-300 font-semibold mt-6 p-4 bg-yellow-900/20 rounded-lg">
                 <strong>
-                  {t.improveAffection.method3_note.split("：")[0]}：
+                  {t.improveAffection.method3_note.split("：")[0]}
                 </strong>
                 {t.improveAffection.method3_note.split("：")[1]}
               </p>

@@ -15,7 +15,7 @@ export const LanguagePicker = () => {
             <Languages className=' text-white hover:text-slate-200  w-7 h-7' />
             {
                 isOpen && (
-                    <ul className=' absolute bg-white right-[-10px] top-10 px-8 py-5 space-y-5 rounded-xl'>
+                    <ul className=' absolute bg-white right-[-10px] top-10 px-8 py-5 space-y-5 rounded-xl z-10'>
                         <li className=' hover:text-slate-500' onClick={() => setLang('en')}>English</li>
                         <li className=' hover:text-slate-500' onClick={() => setLang('ja')}>日本語</li>
                         <li className=' hover:text-slate-500' onClick={() => setLang('zh')}>中文</li>
