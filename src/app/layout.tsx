@@ -21,8 +21,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Grok Ani Affection Guide - Complete NSFW Mode Unlock Tutorial",
-  description: "Complete Grok Ani affection boost guide with daily dialogue templates, emotional sharing techniques, and 7-day action plan. Learn effective interactions to quickly unlock NSFW mode and enhance virtual companion experience.",
+  title: "Grok AI Companion Ani Affection Guide - NSFW Mode Unlock Tutorial",
+  description: "Fast-track Grok AI Companion guide for Ani character interactions. Quickly build affection levels through proven dialogue techniques and emotional connection strategies. Boost companion relationship progression with daily templates and structured approaches for enhanced AI companion experience and deeper virtual relationships.",
 };
 
 export default function RootLayout({
@@ -56,7 +56,6 @@ export default function RootLayout({
           {children}
         </Main>
         <Footer />
-
         <Analytics />
       </body>
     </html>

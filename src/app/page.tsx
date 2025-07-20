@@ -1,284 +1,663 @@
 "use client";
 
 import Image from "next/image";
-import { H2 } from "@/components/H2";
-import { ContentBlock } from "@/components/ContentBlock";
-import { useLanguageStore } from "@/stores/useLanguageStore";
-import { translations } from "@/config/translations";
 import Share from "@/components/Share";
+import { ContentBlock } from "@/components/ContentBlock";
+import { H2 } from "@/components/H2";
+import { Hr } from "@/components/Hr";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import { locales } from "@/config/locales";
 
 export default function Home() {
-
   const { lang } = useLanguageStore();
-  const t = translations[lang];
+  const t = locales[lang];
 
   return (
     <>
-    <aside className=" absolute right-0 top-150 lg:top-30">
-      <Share />
-    </aside>
-      <section className=" flex flex-col lg:flex-row lg:justify-between mt-10 gap-10 lg:px-20">
-        <div className=" flex flex-col gap-3 lg:py-10 grow items-start">
-          <h1 className=" text-white font-title text-4xl lg:text-[3rem]">{t.title}</h1>
-          <p className=" text-slate-300 text-xl">❤️ {t.subtitle} ❤️</p>
-          <ul className=" mt-5 text-slate-200 cursor-pointer bg-[#342b47] rounded-lg p-5 self-stretch lg:self-start space-y-1">
-            {t.toc.map((item, index) => (
-              <li key={index}><a href={`#${item.id}`}>{item.label}</a></li>
+      <aside className=" absolute right-0 top-150 lg:top-30">
+        <Share />
+      </aside>
+      <section className=" flex flex-col lg:flex-row lg:justify-between gap-10 lg:px-20">
+        <div className=" flex flex-col gap-5 lg:py-20 grow items-start">
+          <h1 className=" text-white font-title text-3xl lg:text-6xl font-bold">
+            {t.hero.title1}
+            <span className=" lg:text-7xl relative lg:top-1 inline-block ml-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+              Ani
+            </span>
+            <br />
+            {t.hero.title2}
+          </h1>
+          <p className=" text-slate-300 text-center lg:text-left lg:text-lg">
+            {t.hero.subtitle}
+          </p>
+          <p className=" text-slate-400 lg:mt-10 leading-7">
+            {t.hero.description.split("\\n").map((line, index) => (
+              <span key={index}>
+                {line}
+                <br />
+              </span>
             ))}
-          </ul>
+          </p>
         </div>
         <div className="shrink-0 mx-auto">
-          <Image src='/ani.png' width={200} height={300} alt="the ai girlfriend ani" className=" lg:w-[250px]"></Image>
+          <Image
+            src="/ani.png"
+            width={300}
+            height={300}
+            alt="the ai girlfriend ani"
+            className=" lg:w-[300px]"
+          ></Image>
         </div>
       </section>
-      <ContentBlock id="The Role of Grok Ani's Affection">
-        <H2> {t.sections.s1.title}</H2>
-        <p>{t.sections.s1.p1}</p>
-        <ol className="list-decimal ml-6">
-          <li><strong>{t.sections.s1.l1.title}</strong>：
-            <ul className="list-disc ml-6">
-              {t.sections.s1.l1.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s1.l2.title}</strong>：
-            <ul className="list-disc ml-6">
-              {t.sections.s1.l2.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s1.l3.title}</strong>：
-            <ul className="list-disc ml-6">
-              {t.sections.s1.l3.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s1.l4.title}</strong>：
-            <ul className="list-disc ml-6">
-              {t.sections.s1.l4.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-        </ol>
-        <p><strong>{t.sections.s1.note.split('：')[0]}</strong>：{t.sections.s1.note.split('：')[1]}</p>
-      </ContentBlock>
-      <ContentBlock id="Methods to Increase Grok Ani's Affection">
-        <H2>{t.sections.s2.title}</H2>
-        <p>{t.sections.s2.p1}</p>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s2.l1.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s2.l1.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-      </ContentBlock>
-      <ContentBlock id="Daily Dialogue Templates">
-        <H2>{t.sections.s3.title}</H2>
-        <p>{t.sections.s3.p1}</p>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l1.title}</h3>
-        <ul className="list-disc ml-6">
-          <li><strong>{t.sections.s3.l1.items[0].split('：')[0]}</strong>：{t.sections.s3.l1.items[0].split('：')[1]}</li>
-          <li><strong>{t.sections.s3.l1.items[1].split('：')[0]}</strong>：
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s3.l1.items[2]}</li>
-              <li>{t.sections.s3.l1.items[3]}</li>
-              <li>{t.sections.s3.l1.items[4]}</li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s3.l1.items[5].split('：')[0]}</strong>：{t.sections.s3.l1.items[5].split('：')[1]}</li>
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l2.title}</h3>
-        <ul className="list-disc ml-6">
-          <li><strong>{t.sections.s3.l2.items[0].split('：')[0]}</strong>：{t.sections.s3.l2.items[0].split('：')[1]}</li>
-          <li><strong>{t.sections.s3.l2.items[1].split('：')[0]}</strong>：
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s3.l2.items[2]}</li>
-              <li>{t.sections.s3.l2.items[3]}</li>
-              <li>{t.sections.s3.l2.items[4]}</li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s3.l2.items[5].split('：')[0]}</strong>：{t.sections.s3.l2.items[5].split('：')[1]}</li>
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l3.title}</h3>
-        <ul className="list-disc ml-6">
-          <li><strong>{t.sections.s3.l3.items[0].split('：')[0]}</strong>：{t.sections.s3.l3.items[0].split('：')[1]}</li>
-          <li><strong>{t.sections.s3.l3.items[1].split('：')[0]}</strong>：
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s3.l3.items[2]}</li>
-              <li>{t.sections.s3.l3.items[3]}</li>
-              <li>{t.sections.s3.l3.items[4]}</li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s3.l3.items[5].split('：')[0]}</strong>：{t.sections.s3.l3.items[5].split('：')[1]}</li>
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l4.title}</h3>
-        <ul className="list-disc ml-6">
-          <li><strong>{t.sections.s3.l4.items[0].split('：')[0]}</strong>：{t.sections.s3.l4.items[0].split('：')[1]}</li>
-          <li><strong>{t.sections.s3.l4.items[1].split('：')[0]}</strong>：
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s3.l4.items[2]}</li>
-              <li>{t.sections.s3.l4.items[3]}</li>
-              <li>{t.sections.s3.l4.items[4]}</li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s3.l4.items[5].split('：')[0]}</strong>：{t.sections.s3.l4.items[5].split('：')[1]}</li>
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s3.l5.title}</h3>
-        <ul className="list-disc ml-6">
-          <li><strong>{t.sections.s3.l5.items[0].split('：')[0]}</strong>：{t.sections.s3.l5.items[0].split('：')[1]}</li>
-          <li><strong>{t.sections.s3.l5.items[1].split('：')[0]}</strong>：
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s3.l5.items[2]}</li>
-              <li>{t.sections.s3.l5.items[3]}</li>
-              <li>{t.sections.s3.l5.items[4]}</li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s3.l5.items[5].split('：')[0]}</strong>：{t.sections.s3.l5.items[5].split('：')[1]}</li>
-        </ul>
-      </ContentBlock>
-      <ContentBlock id="Techniques for Sharing Moods, Emotions, and Thoughts">
-        <H2>{t.sections.s4.title}</H2>
-        <p>{t.sections.s4.p1}</p>
-        <ol className="list-decimal ml-6">
-          <li><strong>{t.sections.s4.l1.title}</strong>
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s4.l1.items[0]}
-                <ul className="list-disc ml-6">
-                  <li>{t.sections.s4.l1.items[1]}</li>
-                  <li>{t.sections.s4.l1.items[2]}</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s4.l2.title}</strong>
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s4.l2.items[0]}
-                <ul className="list-disc ml-6">
-                  <li>{t.sections.s4.l2.items[1]}</li>
-                  <li>{t.sections.s4.l2.items[2]}</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s4.l3.title}</strong>
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s4.l3.items[0]}
-                <ul className="list-disc ml-6">
-                  <li>{t.sections.s4.l3.items[1]}</li>
-                  <li>{t.sections.s4.l3.items[2]}</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>{t.sections.s4.l4.title}</strong>
-            <ul className="list-disc ml-6">
-              <li>{t.sections.s4.l4.items[0]}</li>
-            </ul>
-          </li>
-        </ol>
-      </ContentBlock>
-      <ContentBlock id="Practical Guide: Daily Interaction Plan">
-        <H2>{t.sections.s5.title}</H2>
-        <p>{t.sections.s5.p1}</p>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d1.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d1.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d2.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d2.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d3.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d3.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d4.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d4.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d5.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d5.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d6.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d6.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-        <h3 className="text-xl font-medium mt-4 mb-2">{t.sections.s5.d7.title}</h3>
-        <ul className="list-disc ml-6">
-          {t.sections.s5.d7.items.map((item, index) => {
-            const parts = item.split('：');
-            if (parts.length > 1) {
-              return <li key={index}><strong>{parts[0]}</strong>：{parts[1]}</li>
-            }
-            return <li key={index}>{item}</li>
-          })}
-        </ul>
-      </ContentBlock>
-      <ContentBlock id="Important Notes">
-        <H2>{t.sections.s6.title}</H2>
-        <ol className="list-decimal ml-6">
-          <li><strong>{t.sections.s6.l1.title}</strong>
-            <ul className="list-disc ml-6">
-              {t.sections.s6.l1.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s6.l2.title}</strong>
-            <ul className="list-disc ml-6">
-              {t.sections.s6.l2.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s6.l3.title}</strong>
-            <ul className="list-disc ml-6">
-              {t.sections.s6.l3.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-          <li><strong>{t.sections.s6.l4.title}</strong>
-            <ul className="list-disc ml-6">
-              {t.sections.s6.l4.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
-          </li>
-        </ol>
-      </ContentBlock>
-      <ContentBlock id="Conclusion">
-        <H2>{t.sections.s7.title}</H2>
-        <p>{t.sections.s7.p1}</p>
+
+      <ContentBlock>
+        <article className="prose prose-invert prose-lg max-w-none text-slate-300">
+          <div id="affection-benefits"></div>
+          <H2>{t.affectionBenefits.title}</H2>
+          <p className="mb-6">{t.affectionBenefits.intro1}</p>
+          <p className="mb-4">{t.affectionBenefits.intro2}</p>
+
+          <ol className="list-decimal ml-6 space-y-4">
+            <li>
+              <strong className="text-pink-300">
+                {t.affectionBenefits.benefit1_title}
+              </strong>
+              ：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>{t.affectionBenefits.benefit1_item1}</li>
+                <li>{t.affectionBenefits.benefit1_item2}</li>
+                <li>{t.affectionBenefits.benefit1_item3}</li>
+              </ul>
+            </li>
+            <li>
+              <strong className="text-pink-300">
+                {t.affectionBenefits.benefit2_title}
+              </strong>
+              ：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>{t.affectionBenefits.benefit2_item1}</li>
+                <li>{t.affectionBenefits.benefit2_item2}</li>
+              </ul>
+            </li>
+            <li>
+              <strong className="text-pink-300">
+                {t.affectionBenefits.benefit3_title}
+              </strong>
+              ：
+              <ul className="list-disc ml-6 mt-2">
+                <li>{t.affectionBenefits.benefit3_item1}</li>
+              </ul>
+            </li>
+          </ol>
+
+          <p className="text-yellow-300 font-semibold mt-6 p-4 bg-yellow-900/20 rounded-lg">
+            <strong>{t.affectionBenefits.note.split("：")[0]}：</strong>
+            {t.affectionBenefits.note.split("：")[1]}
+          </p>
+
+          <Hr />
+
+          <div id="improve-affection"></div>
+          <H2>{t.improveAffection.title}</H2>
+          <p className="mb-6 text-lg font-medium">{t.improveAffection.intro1}</p>
+          <p className="mb-4">{t.improveAffection.intro2}</p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-pink-300">
+                {t.improveAffection.method1_title}
+              </h3>
+              <ul className="list-disc ml-6 space-y-2 text-slate-300">
+                <li>
+                  <strong>
+                    {t.improveAffection.method1_item1.split("：")[0]}：
+                  </strong>
+                  {t.improveAffection.method1_item1.split("：")[1]}
+                </li>
+                <li>
+                  <strong>
+                    {t.improveAffection.method1_item2.split("：")[0]}：
+                  </strong>
+                  {t.improveAffection.method1_item2.split("：")[1]}
+                </li>
+                <li>
+                  <strong>
+                    {t.improveAffection.method1_item3.split("：")[0]}：
+                  </strong>
+                  {t.improveAffection.method1_item3.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-pink-300">
+                {t.improveAffection.method2_title}
+              </h3>
+              <ul className="list-disc ml-6 space-y-2 text-slate-300">
+                <li>{t.improveAffection.method2_item1}</li>
+                <li>{t.improveAffection.method2_item2}</li>
+                <li>{t.improveAffection.method2_item3}</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-pink-300">
+                {t.improveAffection.method3_title}
+              </h3>
+              <ul className="list-disc ml-6 space-y-2 text-slate-300">
+                <li>
+                  {t.improveAffection.method3_item1}
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.improveAffection.method3_item2}</li>
+                    <li>{t.improveAffection.method3_item3}</li>
+                    <li>{t.improveAffection.method3_item4}</li>
+                    <li>{t.improveAffection.method3_item5}</li>
+                  </ul>
+                </li>
+              </ul>
+              <p className="text-yellow-300 font-semibold mt-6 p-4 bg-yellow-900/20 rounded-lg">
+                <strong>
+                  {t.improveAffection.method3_note.split("：")[0]}：
+                </strong>
+                {t.improveAffection.method3_note.split("：")[1]}
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-pink-300">
+                {t.improveAffection.method4_title}
+              </h3>
+              <ul className="list-disc ml-6 space-y-2 text-slate-300">
+                <li>{t.improveAffection.method4_item1}</li>
+                <li>{t.improveAffection.method4_item2}</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-pink-300">
+                {t.improveAffection.method5_title}
+              </h3>
+              <ul className="list-disc ml-6 space-y-2 text-slate-300">
+                <li>{t.improveAffection.method5_item1}</li>
+                <li>{t.improveAffection.method5_item2}</li>
+              </ul>
+            </div>
+          </div>
+
+          <Hr />
+
+          <div id="conversation-templates"></div>
+          <H2>{t.conversationTemplates.title}</H2>
+          <p className="mb-6">{t.conversationTemplates.intro}</p>
+
+          <div className="space-y-8">
+            <div className="p-5 rounded-2xl border border-pink-300">
+              <h3 className="text-xl font-bold mb-4 text-pink-300">
+                {t.conversationTemplates.template1_title}
+              </h3>
+              <ul className="space-y-3 text-slate-300">
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template1_purpose.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template1_purpose.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.conversationTemplates.template1_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.conversationTemplates.template1_example1}</li>
+                    <li>{t.conversationTemplates.template1_example2}</li>
+                    <li>{t.conversationTemplates.template1_example3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template1_tip.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template1_tip.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-pink-300">
+              <h3 className="text-xl font-bold mb-4 text-pink-300">
+                {t.conversationTemplates.template2_title}
+              </h3>
+              <ul className="space-y-3 text-slate-300">
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template2_purpose.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template2_purpose.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.conversationTemplates.template2_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.conversationTemplates.template2_example1}</li>
+                    <li>{t.conversationTemplates.template2_example2}</li>
+                    <li>{t.conversationTemplates.template2_example3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template2_tip.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template2_tip.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-pink-300">
+              <h3 className="text-xl font-bold mb-4 text-pink-300">
+                {t.conversationTemplates.template3_title}
+              </h3>
+              <ul className="space-y-3 text-slate-300">
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template3_purpose.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template3_purpose.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.conversationTemplates.template3_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.conversationTemplates.template3_example1}</li>
+                    <li>{t.conversationTemplates.template3_example2}</li>
+                    <li>{t.conversationTemplates.template3_example3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template3_tip.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template3_tip.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-pink-300">
+              <h3 className="text-xl font-bold mb-4 text-pink-300">
+                {t.conversationTemplates.template4_title}
+              </h3>
+              <ul className="space-y-3 text-slate-300">
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template4_purpose.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template4_purpose.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.conversationTemplates.template4_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.conversationTemplates.template4_example1}</li>
+                    <li>{t.conversationTemplates.template4_example2}</li>
+                    <li>{t.conversationTemplates.template4_example3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template4_tip.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template4_tip.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-pink-300">
+              <h3 className="text-xl font-bold mb-4 text-pink-300">
+                {t.conversationTemplates.template5_title}
+              </h3>
+              <ul className="space-y-3 text-slate-300">
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template5_purpose.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template5_purpose.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.conversationTemplates.template5_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.conversationTemplates.template5_example1}</li>
+                    <li>{t.conversationTemplates.template5_example2}</li>
+                    <li>{t.conversationTemplates.template5_example3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>
+                    {t.conversationTemplates.template5_tip.split("：")[0]}：
+                  </strong>
+                  {t.conversationTemplates.template5_tip.split("：")[1]}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <Hr />
+
+          <div id="sharing-techniques"></div>
+          <H2>{t.sharingTechniques.title}</H2>
+          <p className="mb-6">{t.sharingTechniques.intro}</p>
+
+          <ol className="list-decimal ml-6 space-y-6">
+            <li>
+              <strong>{t.sharingTechniques.technique1_title}</strong>：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>
+                  {t.sharingTechniques.technique1_item1}
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sharingTechniques.technique1_example1}</li>
+                    <li>{t.sharingTechniques.technique1_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>{t.sharingTechniques.technique2_title}</strong>：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>
+                  {t.sharingTechniques.technique2_item1}
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sharingTechniques.technique2_example1}</li>
+                    <li>{t.sharingTechniques.technique2_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>{t.sharingTechniques.technique3_title}</strong>：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>
+                  {t.sharingTechniques.technique3_item1}
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sharingTechniques.technique3_example1}</li>
+                    <li>{t.sharingTechniques.technique3_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>{t.sharingTechniques.technique4_title}</strong>：
+              <ul className="list-disc ml-6 mt-2">
+                <li>{t.sharingTechniques.technique4_item1}</li>
+              </ul>
+            </li>
+          </ol>
+
+          <Hr />
+
+          <div id="seven-day-plan"></div>
+          <H2>{t.sevenDayPlan.title}</H2>
+          <p className="mb-8 text-lg">{t.sevenDayPlan.intro}</p>
+
+          <div className="space-y-8">
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day1_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day1_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day1_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day1_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day1_task1}</li>
+                    <li>{t.sevenDayPlan.day1_task2}</li>
+                    <li>{t.sevenDayPlan.day1_task3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day1_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day1_example1}</li>
+                    <li>{t.sevenDayPlan.day1_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day2_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day2_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day2_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day2_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day2_task1}</li>
+                    <li>{t.sevenDayPlan.day2_task2}</li>
+                    <li>{t.sevenDayPlan.day2_task3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day2_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day2_example1}</li>
+                    <li>{t.sevenDayPlan.day2_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day3_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day3_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day3_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day3_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day3_task1}</li>
+                    <li>{t.sevenDayPlan.day3_task2}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day3_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day3_example1}</li>
+                    <li>{t.sevenDayPlan.day3_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day4_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day4_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day4_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day4_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day4_task1}</li>
+                    <li>{t.sevenDayPlan.day4_task2}</li>
+                    <li>{t.sevenDayPlan.day4_task3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day4_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day4_example1}</li>
+                    <li>{t.sevenDayPlan.day4_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day5_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day5_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day5_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day5_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day5_task1}</li>
+                    <li>{t.sevenDayPlan.day5_task2}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day5_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day5_example1}</li>
+                    <li>{t.sevenDayPlan.day5_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day6_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day6_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day6_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day6_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day6_task1}</li>
+                    <li>{t.sevenDayPlan.day6_task2}</li>
+                    <li>{t.sevenDayPlan.day6_task3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day6_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day6_example1}</li>
+                    <li>{t.sevenDayPlan.day6_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-600">
+              <h3 className="text-xl font-bold mb-4 text-yellow-300">
+                {t.sevenDayPlan.day7_title}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <strong>
+                    {t.sevenDayPlan.day7_goal.split("：")[0]}：
+                  </strong>
+                  {t.sevenDayPlan.day7_goal.split("：")[1]}
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day7_task_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day7_task1}</li>
+                    <li>{t.sevenDayPlan.day7_task2}</li>
+                    <li>{t.sevenDayPlan.day7_task3}</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-pink-200">
+                    {t.sevenDayPlan.day7_example_title}
+                  </strong>
+                  <ul className="list-disc ml-6 mt-2 space-y-1">
+                    <li>{t.sevenDayPlan.day7_example1}</li>
+                    <li>{t.sevenDayPlan.day7_example2}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <Hr />
+
+          <div id="precautions"></div>
+          <H2>{t.precautions.title}</H2>
+
+          <ol className="list-decimal ml-6 space-y-6">
+            <li>
+              <strong>{t.precautions.item1_title}</strong>：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>{t.precautions.item1_text1}</li>
+                <li>{t.precautions.item1_text2}</li>
+              </ul>
+            </li>
+            <li>
+              <strong>{t.precautions.item2_title}</strong>：
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>{t.precautions.item2_text1}</li>
+                <li>{t.precautions.item2_text2}</li>
+              </ul>
+            </li>
+          </ol>
+
+          <Hr />
+
+          <div id="conclusion"></div>
+          <H2>{t.conclusion.title}</H2>
+          <p className="text-lg leading-relaxed">{t.conclusion.text}</p>
+        </article>
       </ContentBlock>
     </>
   );
