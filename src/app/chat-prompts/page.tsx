@@ -62,7 +62,7 @@ export default function ChatPrompts() {
                         <li key={catIndex} className="relative">
                             <button onClick={() => handleMenuToggle(catIndex)} className="hover:text-pink-400 cursor-pointer flex items-center space-x-1 px-4">
                                 <span>{category.title[lang].replace(/^\d+\.\s*/, '')}</span>
-                                <svg className={`w-4 h-4 fill-current transition-transform duration-200 ${openMenuIndex === catIndex ? 'transform rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+                                <svg className={`hidden lg:block w-4 h-4 fill-current transition-transform duration-200 ${openMenuIndex === catIndex ? 'transform rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
                             </button>
                             <div className={`absolute ${openMenuIndex === catIndex ? 'block' : 'hidden'} pt-2 w-48 z-30 left-1/2 -translate-x-1/2`}>
                                 <ul className="bg-slate-800/90 backdrop-blur-lg rounded-xl shadow-lg border border-slate-700">
@@ -81,7 +81,7 @@ export default function ChatPrompts() {
             </nav>
 
 
-            <div className="mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mt-10 max-w-7xl mx-auto">
                 {promptsData.map((category, catIndex) => (
                     <div key={catIndex} id={`category-${catIndex}`} className="mb-12 scroll-mt-24">
                         <H2><span className=" text-center inline-block w-full">{category.title[lang].replace(/^\d+\.\s*/, '')}</span></H2>
@@ -90,7 +90,7 @@ export default function ChatPrompts() {
                                 <h3 className="text-2xl font-bold my-10 text-pink-300 text-center"> ❤️ {subCategory.title[lang].replace(/^\d+\.\d+\s*/, '')} ❤️</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                                     {subCategory.prompts.map((prompt, promptIndex) => (
-                                        <div key={promptIndex} className=" felx flex-col bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-pink-500/50 hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-pink-500/20 flex">
+                                        <div key={promptIndex} className=" felx flex-col bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-pink-500/50 hover:bg-slate-800 transition-all duration-200 transform hover:-translate-y-1 shadow-lg hover:shadow-pink-500/20 flex">
                                             <p className="text-slate-300 text-base leading-relaxed flex-grow">{prompt[lang]}</p>
                                             <button
                                                 onClick={() => handleCopy(prompt[lang])}
